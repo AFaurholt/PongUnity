@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     private Vector3 _ballVelocity = Vector3.zero;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _goalP1Trans.GetComponent<CollisionEventBehaviour>().OnCollisionEnterEvent += (c, t) => { _scoreP2 += 1; ResetGame(); };
         _goalP2Trans.GetComponent<CollisionEventBehaviour>().OnCollisionEnterEvent += (c, t) => { _scoreP1 += 1; ResetGame(); };
@@ -90,34 +90,34 @@ public class GameManager : MonoBehaviour
         _ballRb.velocity = _ballVelocity;
     }
 
-    void FlipBallY()
+    private void FlipBallY()
     {
         _ballVelocity = new Vector3(_ballVelocity.x, -_ballVelocity.y);
     }
 
-    void BallHitPaddle(Vector3 normal)
+    private void BallHitPaddle(Vector3 normal)
     {
         _numOfBallReflects += 1;
         FlipBallByNormal(-normal, _ballSpeed + _numOfBallReflects * _ballReflectSpeedMod * _ballSpeed);
     }
 
-    void FlipBallByNormal(Vector3 normal, float ballSpeed)
+    private void FlipBallByNormal(Vector3 normal, float ballSpeed)
     {
         _ballVelocity = normal * ballSpeed;
     }
 
-    void SetInputVector(InputAction.CallbackContext cbt, ref Vector2 inputVec2)
+    private void SetInputVector(InputAction.CallbackContext cbt, ref Vector2 inputVec2)
     {
         inputVec2 = cbt.ReadValue<Vector2>();
     }
 
-    void StartGame(InputAction.CallbackContext _)
+    private void StartGame(InputAction.CallbackContext _)
     {
         _startGameAction.action.performed -= StartGame;
         _ballVelocity += new Vector3(_ballSpeed, 0, 0);
     }
 
-    void ResetGame()
+    private void ResetGame()
     {
         _scoreTextP1.text = _scoreP1.ToString();
         _scoreTextP2.text = _scoreP2.ToString();
