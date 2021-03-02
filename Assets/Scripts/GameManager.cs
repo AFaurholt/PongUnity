@@ -6,45 +6,45 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] InputActionReference _moveP1Action;
-    [SerializeField] InputActionReference _moveP2Action;
-    [SerializeField] InputActionReference _startGameAction;
-    [SerializeField] InputActionReference _reloadGameAction;
-    [SerializeField] InputActionReference _escapeGameAction;
+    [SerializeField] private InputActionReference _moveP1Action;
+    [SerializeField] private InputActionReference _moveP2Action;
+    [SerializeField] private InputActionReference _startGameAction;
+    [SerializeField] private InputActionReference _reloadGameAction;
+    [SerializeField] private InputActionReference _escapeGameAction;
 
-    [SerializeField] Transform _paddleP1Trans;
-    [SerializeField] Transform _paddleP2Trans;
+    [SerializeField] private Transform _paddleP1Trans;
+    [SerializeField] private Transform _paddleP2Trans;
 
-    [SerializeField] Transform _goalP1Trans;
-    [SerializeField] Transform _goalP2Trans;
+    [SerializeField] private Transform _goalP1Trans;
+    [SerializeField] private Transform _goalP2Trans;
 
-    [SerializeField] Transform _scoreTextP1Trans;
-    [SerializeField] Transform _scoreTextP2Trans;
+    [SerializeField] private Transform _scoreTextP1Trans;
+    [SerializeField] private Transform _scoreTextP2Trans;
 
-    [SerializeField] Transform _wallTopTrans;
-    [SerializeField] Transform _wallBotTrans;
+    [SerializeField] private Transform _wallTopTrans;
+    [SerializeField] private Transform _wallBotTrans;
 
-    [SerializeField] Transform _ballTrans;
+    [SerializeField] private Transform _ballTrans;
 
-    [SerializeField] float _moveSpeed = 10f;
-    [SerializeField] float _turnSpeed = 5f;
-    [SerializeField] float _ballSpeed = 5f;
-    [SerializeField] float _ballReflectSpeedMod = 5f;
+    [SerializeField] private float _moveSpeed = 10f;
+    [SerializeField] private float _turnSpeed = 5f;
+    [SerializeField] private float _ballSpeed = 5f;
+    [SerializeField] private float _ballReflectSpeedMod = 5f;
 
-    Rigidbody _paddleP1Rb;
-    Rigidbody _paddleP2Rb;
-    Rigidbody _ballRb;
+    private Rigidbody _paddleP1Rb;
+    private Rigidbody _paddleP2Rb;
+    private Rigidbody _ballRb;
 
-    TextMesh _scoreTextP1;
-    TextMesh _scoreTextP2;
+    private TextMesh _scoreTextP1;
+    private TextMesh _scoreTextP2;
 
-    int _numOfBallReflects = 0;
-    int _scoreP1 = 0;
-    int _scoreP2 = 0;
+    private int _numOfBallReflects = 0;
+    private int _scoreP1 = 0;
+    private int _scoreP2 = 0;
 
-    Vector2 _inputP1Vec2 = Vector2.zero;
-    Vector2 _inputP2Vec2 = Vector2.zero;
-    Vector3 _ballVelocity = Vector3.zero;
+    private Vector2 _inputP1Vec2 = Vector2.zero;
+    private Vector2 _inputP2Vec2 = Vector2.zero;
+    private Vector3 _ballVelocity = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
